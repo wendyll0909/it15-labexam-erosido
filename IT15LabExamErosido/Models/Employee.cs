@@ -10,17 +10,17 @@ namespace IT15LabExamErosido.Models
         
         [Required]
         [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
         
         [Required]
         [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
         
         [Required]
-        public string Position { get; set; }
+        public string Position { get; set; } = string.Empty;
         
         [Required]
-        public string Department { get; set; }
+        public string Department { get; set; } = string.Empty;
         
         [Required]
         [Display(Name = "Daily Rate")]
@@ -28,6 +28,6 @@ namespace IT15LabExamErosido.Models
         public decimal DailyRate { get; set; }
         
         // Navigation property for payroll transactions
-        public virtual ICollection<Payroll> Payrolls { get; set; }
+        public virtual ICollection<Payroll> Payrolls { get; set; } = new List<Payroll>();
     }
 }

@@ -173,20 +173,23 @@ namespace IT15LabExamErosido.Controllers
         }
         
         // POST: Payrolls/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var payroll = await _context.Payrolls.FindAsync(id);
-            int employeeId = payroll.EmployeeId;
-            if (payroll != null)
-            {
-                _context.Payrolls.Remove(payroll);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Payroll record deleted successfully!";
-            }
-            return RedirectToAction(nameof(EmployeePayrolls), new { id = employeeId });
-        }
+[HttpPost, ActionName("Delete")]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> DeleteConfirmed(int id)
+{
+    var payroll = await _context.Payrolls.FindAsync(id);
+    if (payroll == null)
+    {
+        return NotFound();
+    }
+    
+    int employeeId = payroll.EmployeeId;  // Moved this INSIDE null check
+    _context.Payrolls.Remove(payroll);
+    await _context.SaveChangesAsync();
+    TempData["Success"] = "Payroll record deleted successfully!";
+    
+    return RedirectToAction(nameof(EmployeePayrolls), new { id = employeeId });
+}
         
         private bool PayrollExists(int id)
         {

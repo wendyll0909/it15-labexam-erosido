@@ -88,6 +88,7 @@ C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\IT15LabExamErosido.c
 C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\IT15LabExamErosido.MvcApplicationPartsAssemblyInfo.cache
 C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\IT15LabExamErosido.RazorAssemblyInfo.cache
 C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\IT15LabExamErosido.RazorAssemblyInfo.cs
+C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\IT15LabExamErosido.sourcelink.json
 C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\IT15-LabExam-Erosido\IT15LabExamErosido\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
