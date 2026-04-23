@@ -1,0 +1,44 @@
+@model IT15LabExamErosido.Models.Payroll
+
+@{
+    ViewData["Title"] = "Edit Payroll";
+    var employees = ViewBag.Employees as IEnumerable<IT15LabExamErosido.Models.Employee>;
+}
+
+<h1>Edit Payroll Record</h1>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="PayrollId" />
+    
+    <div class="form-group">
+        <label asp-for="EmployeeId"></label>
+        <select asp-for="EmployeeId" class="form-control" asp-items="@(new SelectList(employees, "EmployeeId", "FirstName", Model.EmployeeId))">
+            <option value="">-- Select Employee --</option>
+        </select>
+        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="DaysWorked"></label>
+        <input asp-for="DaysWorked" class="form-control" />
+        <span asp-validation-for="DaysWorked" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Deduction"></label>
+        <input asp-for="Deduction" class="form-control" />
+        <span asp-validation-for="Deduction" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group mt-3">
+        <input type="submit" value="Save Changes" class="btn btn-primary" />
+        <a asp-action="EmployeePayrolls" asp-route-id="@Model.EmployeeId" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

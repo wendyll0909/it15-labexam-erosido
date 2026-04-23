@@ -1,0 +1,57 @@
+@model IEnumerable<IT15LabExamErosido.Models.Payroll>
+
+@{
+    ViewData["Title"] = "Payroll History";
+}
+
+<h1>Payroll History for @ViewBag.EmployeeName</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<p>
+    <a asp-action="Create" asp-route-employeeId="@ViewBag.EmployeeId" class="btn btn-primary">Add Payroll Record</a>
+    <a asp-controller="Employees" asp-action="Index" class="btn btn-secondary">Back to Employees</a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No payroll records found for this employee.</div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Payroll ID</th>
+                <th>Date</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction</th>
+                <th>Net Pay</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.PayrollId</td>
+                    <td>@item.Date.ToString("yyyy-MM-dd")</td>
+                    <td>@item.DaysWorked</td>
+                    <td>@(item.Employee?.DailyRate.ToString("C") ?? "N/A")</td>
+                    <td class="text-success fw-bold">@item.GrossPay.ToString("C")</td>
+                    <td class="text-danger">@item.Deduction.ToString("C")</td>
+                    <td class="text-primary fw-bold">@item.NetPay.ToString("C")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PayrollId" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.PayrollId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

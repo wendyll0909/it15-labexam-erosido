@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to TechCore Solutions</h1>
+    <p class="lead">Employee Management and Payroll System</p>
+    <hr />
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Employee Management</h3>
+                </div>
+                <div class="card-body">
+                    <p>Manage your employee records - Add, Edit, View, and Delete employee information.</p>
+                    <a asp-controller="Employees" asp-action="Index" class="btn btn-primary">Go to Employees</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h3>Payroll Management</h3>
+                </div>
+                <div class="card-body">
+                    <p>Process payroll transactions with automatic computation of Gross Pay and Net Pay.</p>
+                    <a asp-controller="Payrolls" asp-action="Index" class="btn btn-success">Go to Payroll</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
